@@ -1,92 +1,93 @@
-# Smart Urban Heat Map API Dokumentation <!-- omit in toc -->
+# Smart Urban Heat Map API Documentation <!-- omit in toc -->
 
-[![de](https://img.shields.io/badge/lang-de-green.svg)](../de)
-[![en](https://img.shields.io/badge/lang-en-red.svg)](../)
+[![de](https://img.shields.io/badge/lang-de-green.svg)](de)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./)
 
 
-Diese Dokumentation beschreibt die **Open-Data API** des [Smart Urban Heat Map Bern Projekts](https://urban-heat.meteotest.ch).
+This documentation describes the **Open-Data API** of the [Smart Urban Heat Map Bern Project](https://urban-heat.meteotest.ch).  
 
-Die Smart Urban Heat Map ist eine Initiative des [Smart City Vereins Bern](https://www.smartcity-bern.ch/) zur Visualisierung der städtischen Wärme in der Stadt und Region Bern. Wertvolle Pionierarbeit leistete die Gruppe Klimatologie am [Geographischen Institut der Universität Bern (GIUB)](https://www.geography.unibe.ch/index_eng.html), die seit 2018 ein städtisches Messnetz betreibt, bestehend aus rund 80 Stationen. Der Smart City Verein Bern, zusammen mit der Firma [Abilium GmbH](https://www.abilium.io/), dem [Institut Public Sector Transformation](https://www.bfh.ch/de/forschung/forschungsbereiche/public-sector-transformation/) der Berner Fachhochschule und der Firma [Meteotest](https://meteotest.ch/), hat dieses Messnetz in die Region Bern um rund 40 Messstationen erweitert.
+The Smart Urban Heat Map is an initiative of the [Smart City Verein Bern](https://www.smartcity-bern.ch/) to visualize urban heat in the city and region of Bern. Valuable pioneering work has been done by the Climatology Group at the [Geographical Institute of the University of Bern (GIUB)](https://www.geography.unibe.ch/index_eng.html), which has been operating an urban measurement network since 2018, consisting of around 80 stations. The Smart City Verein Bern, together with the company [Abilium GmbH](https://www.abilium.io/), the [Bern University of Applied Sciences](https://www.bfh.ch/de/forschung/forschungsbereiche/public-sector-transformation/) and the company [Meteotest](https://meteotest.ch/), has extended this measuring network into the Bern region by around 40 measuring stations.
 
-Basierend auf diesem Messnetzwerk bietet die Smart Urban Heat Map API Zugriff auf detaillierte Stadtklimadaten für die Region Bern. Benutzer können aktuelle Messungen von Temperatur und relativer Luftfeuchtigkeit sowie Standortmetadaten und ortsgebundene Zeitreihendaten abrufen. Die Daten liefern wertvolle Erkenntnisse für Stadtplanung und Umweltstudien.
+Based on this measurement network, the Smart Urban Heat Map API offers access to detailed city climate data for the region of Bern, Switzerland. Users can retrieve current measurements of temperature, relative humidity, and location metadata, as well as location-bound time series data. The data provides valuable insights for urban planning and environmental studies.
 
-Die Dokumentation wird durch eine [interaktive OpenAPI-Spezifikation](../Swagger) und ein [Jupyter Notebook](../python_examples.ipynb) ergänzt, das Beispiele für das Abrufen und Visualisierung der Daten mit Python enthält.
-Das Notizbuch kann **lokal oder direkt im Browser** mit [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JurekMueller/SUH_Bern_API_Doc/main?labpath=python_examples.ipynb)
-oder [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JurekMueller/SUH_Bern_API_Doc/blob/main/python_examples.ipynb) ausgeführt werden.
+The documentation is complemented by an [interactive OpenAPI specification](Swagger) and a [Jupyter Notebook](python_examples.ipynb) which includes examples of how to request and visualize the data using Python.  
+The notebook can be run **locally or directly in the browser** using [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JurekMueller/SUH_Bern_API_Doc/main?labpath=python_examples.ipynb)
+or [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JurekMueller/SUH_Bern_API_Doc/blob/main/python_examples.ipynb).
 
-**Lizenzinformationen**  
-Die Daten der API stehen unter der [Creative Commons Attribution License (CC-BY)](https://creativecommons.org/licenses/by/4.0/) zur Verfügung.  
-Bitte stellen Sie sicher, dass Sie bei der Verwendung oder Weitergabe dieser Daten in Ihren Projekten oder Anwendungen die Urheber angeben.  
-*Attributionsbeispiel:* Daten bereitgestellt vom Smart Urban Heat Map Projekt für Bern, Schweiz.
+**Licensing Information**  
+The data from the API is available under the [Creative Commons Attribution License (CC-BY)](https://creativecommons.org/licenses/by/4.0/).  
+Please ensure that you provide proper attribution when using or redistributing this data in your projects or applications.  
+*Attribution Example:* Data provided by the Smart Urban Heat Map Project for Bern, Switzerland.
 
-**Kontaktinformationen**  
-Bei Fragen zu den Daten wenden Sie sich bitte an die [BFH] (mailto:jurek.mueller@bfh.ch).  
-Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:office@meteotest.ch).  
+**Contact Information**  
+For questions regarding the data, please contact the [BFH](mailto:jurek.mueller@bfh.ch).  
+For technical questions regarding the API, please contact [Meteotest](mailto:office@meteotest.ch).
 
-**Inhaltsverzeichnis**
+**Table of Contents**
 - [Changelog](#changelog)
-- [Stationen, Sensoren und Temperaturverzerrung](#stationen-sensoren-und-temperaturverzerrung)
-- [Endpunkte](#endpunkte)
-- [Codebuch](#codebuch)
-- [Beispielabfragen](#beispielabfragen)
+- [Stations, Sensors and Temperature Bias](#stations-sensors-and-temperature-bias)
+- [Endpoints](#endpoints)
+- [Codebook](#codebook)
+- [Example Requests](#example-requests)
 
 ## Changelog
 
 ### API Version 1.0 <!-- omit in toc -->
 
-Dies ist die erste Version der Smart Urban Heat Map API, die am 09.10.2023 veröffentlicht wurde.
+This is the first version of the Smart Urban Heat Map API published on 09.10.2023.
 
-## Stationen, Sensoren und Temperaturverzerrung
-Die Messstationen werden von der [Abilium GmbH](https://www.abilium.io/) gebaut und basieren auf dem [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion-Sensor.  
-Die autarken Stationen sind mit einem kleinen Solarpanel ausgestattet und messen alle 10 Minuten die Lufttemperatur und die relative Luftfeuchtigkeit.
-Die Messdaten werden über das Helium LoRaWAN-Netzwerk versendet.  
-Um die mögliche Temperaturverzerrung im Fall einer direkten Sonneneinstrahlung zu verringern, werden alle Stationen vor der Messung belüftet.  
-**In einigen Fällen, insbesondere tagsüber, können die gemessenen Temperaturen jedoch immer noch etwas höher sein als die tatsächlichen Temperaturen.**
+## Stations, Sensors and Temperature Bias
+The measuring stations are built by [Abilium GmbH](https://www.abilium.io/) and are based on the [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion sensors.  
+The self-sufficient stations are outfitted with a small solar panel and measure temperature and relative humidity every 10 minutes.  
+The measurement data is sent out via the Helium LoRaWAN network.  
+To reduce the potential temperature bias when stations are exposed to direct sunlight, all stations are ventilated before measuring.  
+**However, in some cases, especially during the day, measured temperatures might still be slightly higher than actual temperatures.**
 
-## Endpunkte
+## Endpoints
 
 ### stations <!-- omit in toc -->
 
-Ruft Stationsdaten ab, einschliesslich des letzten Messwerts für:
-* Die Temperatur in Grad Celsius (°C).  
-* Die relative Luftfeuchtigkeit in Prozent (%).
+Retrieves station data including most recent measured value for:
+
+* Temperature is in Celsius (°C).
+* Relative Humidity is in percentage (%).
 
 **URL:** https://urban-heat.meteotest.ch/api/1.0/stations  
-**Rückgabeformate:** "GeoJSON" (Default), "CSV".
+**Response Formats:** `GeoJSON` (default), `CSV`  
 
 ### timeseries <!-- omit in toc -->
-Ruft Zeitreihen basierend auf der Stations-ID ab für:  
-* Die Temperatur in Grad Celsius (°C).  
-* Die relative Luftfeuchtigkeit in Prozent (%).
+Retrieves time series based on stationId for:
+* Temperature is in Celsius (°C).
+* Relative Humidity is in percentage (%).
 
 **URL:** https://urban-heat.meteotest.ch/api/1.0/timeseries  
-**Rückgabeformate:** "JSON" (Default), "CSV".  
-**URL-Parameter:**
-   * **stationId** (erforderlich): Gibt an, von welcher Station die Zeitreihe zurückgegeben werden soll
-   * **timeFrom** (optional, Default: "-24hours"): Gibt den Beginn der Zeitreihe an (Beispiele: "-3days", "-24hours", "-30minutes", "2023-10-01T00:00:00Z")
-   * **timeTo** (optional, Default: "now"): gibt das Ende der Zeitreihe an (Beispiele: "-3days", "-24hours", "-30minutes", "now", "2023-10-01T00:00:00Z")
+**Response Formats:** `JSON` (default), `CSV`  
+**URL Parameter:**
+  * **stationId** (required): specifies from which station to return the time series
+  * **timeFrom** (optional, default: "-24hours"): specifies start of time series (Examples: "-3days","-24hours","-30minutes", "2023-10-01T00:00:00Z")
+  * **timeTo** (optional, default: "now"): specifies end of time series (Examples: "-3days","-24hours","-30minutes", "now", "2023-10-01T00:00:00Z")
 
-## Codebuch
+## Codebook
 
 ### stations <!-- omit in toc -->
 
-- **coordinates**: Array, das die geografischen Koordinaten (in WGS84) der Station darstellt (Latitude, Longitude)
-- **stationId**: Eindeutige Kennung für die Station (Beispiel: "0F40CBFEFFE70FFE")
-- **name**: Name der Station (Beispiel: "Sandrain-Bern")
-- **dateObserved**: Datum und Uhrzeit der letzten Messung (Beispiel: "2023-08-01T12:00:00Z")
-- **temperature**: Zuletzt an der Station gemessene Temperatur in °C (Beispiel: 18.925001)
-- **relativeHumidity**: Zuletzt an der Station gemessene relative Luftfeuchtigkeit in % (Beispiel: 60,971848)
+- **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Latitude,Longitude) 
+- **stationId**: Unique identifier for the station (Example: "0F40CBFEFFE70FFE")
+- **name**: Name of the station (Example: "Sandrain-Bern")
+- **dateObserved**: Date and time of the last measurement (Example: "2023-08-01T12:00:00Z")
+- **temperature**: Last temperature measured at the station in °C (Example: 18.925001)
+- **relativeHumidity**: Last relative humidity measured at the station in % (Example: 60.971848)
 
 ### timeseries <!-- omit in toc -->
 
-- **stationId**: Eindeutige Kennung für die Station (Beispiel: "0F40CBFEFFE70FFE")
-- **dateObserved**: Datum und Uhrzeit der Messung (Beispiel: "2023-08-01T12:00:00Z")
-- **temperature**: An der Station gemessene Temperatur in °C (Beispiel: 18.925001)
-- **relativeHumidity**: An der Station gemessene relative Luftfeuchtigkeit in % (Beispiel: 60,971848)
+- **stationId**: Unique identifier for the station (Example: "0F40CBFEFFE70FFE")
+- **dateObserved**: Date and time of the measurement (Example: "2023-08-01T12:00:00Z")
+- **temperature**: Temperature measured at the station in °C (Example: 18.925001)
+- **relativeHumidity**: Relative humidity measured at the station in % (Example: 60.971848)
 
-## Beispielabfragen
+## Example Requests
 
-### Liste der Stationen einschliesslich der neuesten Messungen abfragen <!-- omit in toc -->
+### Request list of stations and most recent measurements  <!-- omit in toc -->
 `GET https://urban-heat.meteotest.ch/api/1.0/stations`
 
 ```json
@@ -132,7 +133,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 }
 ```
 
-### Zeitreihe für eine Station abfragen  <!-- omit in toc -->
+### Request timeseries for a station  <!-- omit in toc -->
 
 `GET https://urban-heat.meteotest.ch/api/1.0/timeseries?stationId=D33FCBFEFFE70FFE&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
 
