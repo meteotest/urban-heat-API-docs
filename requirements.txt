@@ -3,3 +3,4 @@ pandas
 geopandas
 folium
 branca
+matplotlib

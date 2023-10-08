@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Smart Urban Heat Map API
   description: |
-    This OpenAPI specification describes the **Open-Data API** of the [Smart Urban Heat Map Bern Project](https://urban-heat.meteotest.ch).  
+    This OpenAPI specification describes the **Open-Data API** of the [Smart Urban Heat Map Bern Project](https://smart-urban-heat-map.ch).  
 
     The Smart Urban Heat Map is an initiative of the [Smart City Verein Bern](https://www.smartcity-bern.ch/) to visualize urban heat in the city and region of Bern.
     Valuable pioneering work has been done by the Climatology Group at the [Geographical Institute of the University of Bern (GIUB)](https://www.geography.unibe.ch/index_eng.html), which has been operating an urban measurement network since 2018, consisting of around 80 stations. The Smart City Verein Bern, together with the company [Abilium GmbH](https://www.abilium.io/), the [Bern University of Applied Sciences](https://www.bfh.ch/de/forschung/forschungsbereiche/public-sector-transformation/) and the company [Meteotest](https://meteotest.ch/), has extended this measuring network into the Bern region by around 40 measuring stations.
@@ -12,8 +12,8 @@ info:
     The data provides valuable insights for urban planning and environmental studies.
 
     The OpenAPI specification is complemented by an [API documentation](../) and a [python notebook](../python_examples.ipynb) which includes examples of how to request and visualize the data using Python.  
-    The notebook can be run **locally or directly in the browser** using [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JurekMueller/SUH_Bern_API_Doc/main?labpath=python_examples.ipynb)
-    or [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/JurekMueller/SUH_Bern_API_Doc/blob/main/python_examples.ipynb).
+    The notebook can be run **locally or directly in the browser** using [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/meteotest/urban-heat-API-docs/main?labpath=python_examples.ipynb)
+    or [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/meteotest/urban-heat-API-docs/blob/main/python_examples.ipynb).
 
     **Disclaimer Temperature Bias**  
     To reduce the potential temperature bias when stations are exposed to direct sunlight, all stations are ventilated before measuring.  
@@ -36,7 +36,7 @@ info:
     url: "https://creativecommons.org/licenses/by/4.0/"
   version: 1.0.0
 servers:
-  - url: "https://urban-heat.meteotest.ch/api/1.0"
+  - url: "https://smart-urban-heat-map.ch/api/1.0"
     description: Production server
 
 paths:
