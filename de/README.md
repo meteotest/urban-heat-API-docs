@@ -36,6 +36,8 @@ Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:offic
 
 Dies ist die erste Version der Smart Urban Heat Map API, die am 09.10.2023 veröffentlicht wurde.
 
+**Hinweis**: In der initialen Version wurden die lat/lon-Koordinaten des GeoJSON-Endpoints `/stations` in der falschen Reihenfolge zurückgegeben (`[lat, lon]` statt `[lon, lat]`).
+
 ## Stationen, Sensoren und Temperaturverzerrung
 Die Messstationen werden von der [Abilium GmbH](https://www.abilium.io/) gebaut und basieren auf dem [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion-Sensor.
 Die autarken Stationen sind mit einem kleinen Solarpanel ausgestattet und messen alle 10 Minuten die Lufttemperatur und die relative Luftfeuchtigkeit.
@@ -70,7 +72,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 
 ### stations <!-- omit in toc -->
 
-- **coordinates**: Array, das die geografischen Koordinaten (in WGS84) der Station darstellt (Latitude, Longitude)
+- **coordinates**: Array, das die geografischen Koordinaten (in WGS84) der Station darstellt (Longitude, Latitude)
 - **stationId**: Eindeutige Kennung für die Station (Beispiel: "0F40CBFEFFE70FFE")
 - **name**: Name der Station (Beispiel: "Sandrain-Bern")
 - **dateObserved**: Datum und Uhrzeit der letzten Messung (Beispiel: "2023-08-01T12:00:00Z")
@@ -98,8 +100,8 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
       "geometry": {
         "type": "Point",
         "coordinates": [
-          46.94067,
-          7.43141
+          7.43141,
+          46.94067
         ]
       },
       "properties": {
@@ -115,8 +117,8 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
       "geometry": {
         "type": "Point",
         "coordinates": [
-          46.96681,
-          7.439139
+          7.439139,
+          46.96681
         ]
       },
       "properties": {

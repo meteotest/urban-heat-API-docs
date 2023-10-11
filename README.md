@@ -36,6 +36,8 @@ For technical questions regarding the API, please contact [Meteotest](mailto:off
 
 This is the first version of the Smart Urban Heat Map API published on 09.10.2023.
 
+**Remark**: In the initial version, the GeoJSON end point `/stations` returned the lat/lon coordinates in the wrong order (`[lat, lon]` rather than `[lon, lat]`).
+
 ## Stations, Sensors and Temperature Bias
 The measuring stations are built by [Abilium GmbH](https://www.abilium.io/) and are based on the [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion sensors.
 The self-sufficient stations are outfitted with a small solar panel and measure temperature and relative humidity every 10 minutes.
@@ -71,7 +73,7 @@ Retrieves time series based on stationId for:
 
 ### stations <!-- omit in toc -->
 
-- **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Latitude,Longitude)
+- **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Longitude, Latitude)
 - **stationId**: Unique identifier for the station (Example: "0F40CBFEFFE70FFE")
 - **name**: Name of the station (Example: "Sandrain-Bern")
 - **dateObserved**: Date and time of the last measurement (Example: "2023-08-01T12:00:00Z")
@@ -99,8 +101,8 @@ Retrieves time series based on stationId for:
       "geometry": {
         "type": "Point",
         "coordinates": [
-          46.94067,
-          7.43141
+          7.43141,
+          46.94067
         ]
       },
       "properties": {
@@ -116,8 +118,8 @@ Retrieves time series based on stationId for:
       "geometry": {
         "type": "Point",
         "coordinates": [
-          46.96681,
-          7.439139
+          7.439139,
+          46.96681
         ]
       },
       "properties": {

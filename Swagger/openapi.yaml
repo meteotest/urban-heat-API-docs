@@ -63,7 +63,7 @@ paths:
                   - type: "Feature"
                     geometry:
                       type: "Point"
-                      coordinates: [46.94067, 7.43141]
+                      coordinates: [7.43141, 46.94067]
                     properties:
                       stationId: "3A0551FEFF6E959E"
                       name: "Eigerplatz-Bern"
@@ -73,7 +73,7 @@ paths:
                   - type: "Feature"
                     geometry:
                       type: "Point"
-                      coordinates: [46.96681, 7.439139]
+                      coordinates: [7.439139, 46.96681]
                     properties:
                       stationId: "140551FEFF6E959E"
                       name: "Worblen-Ostermundigen"
@@ -304,13 +304,13 @@ components:
 
     Coordinates:
       type: array
-      description: "lat/lon coordinates in the WGS 84 system"
+      description: "lon/lat coordinates in the WGS 84 system"
       items:
         type: number
       minItems: 2
       maxItems: 2
       example:
-        [46.346, 7.456]
+        [7.456, 46.346]
 
     Value:
       type: object
