@@ -21,6 +21,7 @@ Bitte stellen Sie sicher, dass Sie bei der Verwendung oder Weitergabe dieser Dat
 
 **Kontaktinformationen**
 Bei Fragen zu den Daten wenden Sie sich bitte an die [BFH] (mailto:jurek.mueller@bfh.ch).
+Bei Fragen zu Standorten und Daten des "Urban Climate Bern" Projektes wenden Sie sich bitte an [GIUB - Urban Climate Bern](mailto:urbanclimate.giub@unibe.ch).
 Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:office@meteotest.ch).
 
 **Inhaltsverzeichnis**
