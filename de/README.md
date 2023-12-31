@@ -25,7 +25,7 @@ Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:offic
 
 **Inhaltsverzeichnis**
 - [Changelog](#changelog)
-- [Stationen, Sensoren und Temperaturverzerrung](#stationen-sensoren-und-temperaturverzerrung)
+- [Stationen, Sensoren und Temperaturabweichung](#stationen-sensoren-und-temperaturabweichung)
 - [Endpunkte](#endpunkte)
 - [Codebuch](#codebuch)
 - [Beispielabfragen](#beispielabfragen)
@@ -38,11 +38,11 @@ Dies ist die erste Version der Smart Urban Heat Map API, die am 09.10.2023 verö
 
 **Hinweis**: In der initialen Version wurden die lat/lon-Koordinaten des GeoJSON-Endpoints `/stations` in der falschen Reihenfolge zurückgegeben (`[lat, lon]` statt `[lon, lat]`).
 
-## Stationen, Sensoren und Temperaturverzerrung
+## Stationen, Sensoren und Temperaturabweichung
 Die Messstationen werden von der [Abilium GmbH](https://www.abilium.io/) gebaut und basieren auf dem [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion-Sensor.
 Die autarken Stationen sind mit einem kleinen Solarpanel ausgestattet und messen alle 10 Minuten die Lufttemperatur und die relative Luftfeuchtigkeit.
 Die Messdaten werden über das Helium LoRaWAN-Netzwerk versendet.
-Um die mögliche Temperaturverzerrung im Fall einer direkten Sonneneinstrahlung zu verringern, werden alle Stationen vor der Messung belüftet.
+Um die mögliche Temperaturabweichung im Fall einer direkten Sonneneinstrahlung zu verringern, werden alle Stationen vor der Messung belüftet.
 **In einigen Fällen, insbesondere tagsüber, können die gemessenen Temperaturen jedoch immer noch etwas höher sein als die tatsächlichen Temperaturen.**
 
 ## Endpunkte
