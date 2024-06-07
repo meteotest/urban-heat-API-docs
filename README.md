@@ -75,7 +75,7 @@ Retrieves time series based on stationId for:
 ### stations <!-- omit in toc -->
 
 - **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Longitude, Latitude)
-- **stationId**: Unique identifier for the station (Example: "0F40CBFEFFE70FFE")
+- **stationId**: Unique identifier for the station (Example: "11099")
 - **name**: Name of the station (Example: "Sandrain-Bern")
 - **dateObserved**: Date and time of the last measurement (Example: "2023-08-01T12:00:00Z")
 - **temperature**: Last temperature measured at the station in °C (Example: 18.925001)
@@ -83,7 +83,7 @@ Retrieves time series based on stationId for:
 
 ### timeseries <!-- omit in toc -->
 
-- **stationId**: Unique identifier for the station (Example: "0F40CBFEFFE70FFE")
+- **stationId**: Unique identifier for the station (Example: "11099")
 - **dateObserved**: Date and time of the measurement (Example: "2023-08-01T12:00:00Z")
 - **temperature**: Temperature measured at the station in °C (Example: 18.925001)
 - **relativeHumidity**: Relative humidity measured at the station in % (Example: 60.971848)
@@ -107,7 +107,7 @@ Retrieves time series based on stationId for:
         ]
       },
       "properties": {
-        "stationId": "3A0551FEFF6E959E",
+        "stationId": "11037",
         "name": "Eigerplatz-Bern",
         "dateObserved": "2023-10-05T11:36:29Z",
         "temperature": 18.925001,
@@ -124,7 +124,7 @@ Retrieves time series based on stationId for:
         ]
       },
       "properties": {
-        "stationId": "140551FEFF6E959E",
+        "stationId": "11127",
         "name": "Worblen-Ostermundigen",
         "dateObserved": "2023-10-05T11:36:27Z",
         "temperature": 18.791485,
@@ -138,11 +138,11 @@ Retrieves time series based on stationId for:
 
 ### Request timeseries for a station  <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=D33FCBFEFFE70FFE&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
+`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
 
 ```json
 {
-  "stationId": "D33FCBFEFFE70FFE",
+  "stationId": "11023",
   "values": [
     {
       "dateObserved": "2023-10-01T00:05:45Z",

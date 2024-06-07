@@ -74,7 +74,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 ### stations <!-- omit in toc -->
 
 - **coordinates**: Array, das die geografischen Koordinaten (in WGS84) der Station darstellt (Longitude, Latitude)
-- **stationId**: Eindeutige Kennung für die Station (Beispiel: "0F40CBFEFFE70FFE")
+- **stationId**: Eindeutige Kennung für die Station (Beispiel: "11099")
 - **name**: Name der Station (Beispiel: "Sandrain-Bern")
 - **dateObserved**: Datum und Uhrzeit der letzten Messung (Beispiel: "2023-08-01T12:00:00Z")
 - **temperature**: Zuletzt an der Station gemessene Temperatur in °C (Beispiel: 18.925001)
@@ -82,7 +82,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 
 ### timeseries <!-- omit in toc -->
 
-- **stationId**: Eindeutige Kennung für die Station (Beispiel: "0F40CBFEFFE70FFE")
+- **stationId**: Eindeutige Kennung für die Station (Beispiel: "11099")
 - **dateObserved**: Datum und Uhrzeit der Messung (Beispiel: "2023-08-01T12:00:00Z")
 - **temperature**: An der Station gemessene Temperatur in °C (Beispiel: 18.925001)
 - **relativeHumidity**: An der Station gemessene relative Luftfeuchtigkeit in % (Beispiel: 60,971848)
@@ -106,7 +106,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
         ]
       },
       "properties": {
-        "stationId": "3A0551FEFF6E959E",
+        "stationId": "11037",
         "name": "Eigerplatz-Bern",
         "dateObserved": "2023-10-05T11:36:29Z",
         "temperature": 18.925001,
@@ -123,7 +123,7 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
         ]
       },
       "properties": {
-        "stationId": "140551FEFF6E959E",
+        "stationId": "11127",
         "name": "Worblen-Ostermundigen",
         "dateObserved": "2023-10-05T11:36:27Z",
         "temperature": 18.791485,
@@ -137,11 +137,11 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 
 ### Zeitreihe für eine Station abfragen  <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=D33FCBFEFFE70FFE&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
+`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
 
 ```json
 {
-  "stationId": "D33FCBFEFFE70FFE",
+  "stationId": "11023",
   "values": [
     {
       "dateObserved": "2023-10-01T00:05:45Z",
