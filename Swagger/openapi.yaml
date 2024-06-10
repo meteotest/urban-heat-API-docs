@@ -50,7 +50,7 @@ paths:
         - Temperature in Celsius (°C).
         - Relative humidity in percentage (%).
 
-        Measurments occur every 10 min.
+        Measurements occur every 10 min.
       responses:
         '200':
           description: Successful response
@@ -102,7 +102,7 @@ paths:
         - Temperature is in Celsius (°C).
         - Relative Humidity is in percentage (%).
 
-        Measurments occur every 10 min.
+        Measurements occur every 10 min.
       parameters:
         - $ref: "#/components/parameters/stationId"
         - $ref: "#/components/parameters/timeFrom"
