@@ -37,7 +37,7 @@ For technical questions regarding the API, please contact [Meteotest](mailto:off
 
 This is the first version of the Smart Urban Heat Map API published on 09.10.2023.
 
-**Remark**: In the initial version, the GeoJSON end point `/stations` returned the lat/lon coordinates in the wrong order (`[lat, lon]` rather than `[lon, lat]`).
+**Remark**: In the initial version, the GeoJSON end point `/stations` (now called `/latest`) returned the lat/lon coordinates in the wrong order (`[lat, lon]` rather than `[lon, lat]`).
 
 ## Stations, Sensors and Temperature Bias
 The measuring stations are built by [Abilium GmbH](https://www.abilium.io/) and are based on the [SHT41A](https://www.mouser.ch/datasheet/2/682/Datasheet_SHT4x-3003109.pdf) Sensorion sensors.
@@ -48,14 +48,14 @@ To reduce the potential temperature bias when stations are exposed to direct sun
 
 ## Endpoints
 
-### stations <!-- omit in toc -->
+### latest <!-- omit in toc -->
 
 Retrieves station data including most recent measured value for:
 
 * Temperature is in Celsius (°C).
 * Relative Humidity is in percentage (%).
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/stations
+**URL:** https://smart-urban-heat-map.ch/api/1.0/latest
 **Response Formats:** `GeoJSON` (default), `CSV`
 
 ### timeseries <!-- omit in toc -->
@@ -70,12 +70,19 @@ Retrieves time series based on stationId for:
   * **timeFrom** (optional, default: "-24hours"): specifies start of time series (Examples: "-3days","-24hours","-30minutes", "2023-10-01T00:00:00Z")
   * **timeTo** (optional, default: "now"): specifies end of time series (Examples: "-3days","-24hours","-30minutes", "now", "2023-10-01T00:00:00Z")
 
-## Codebook
-
 ### stations <!-- omit in toc -->
 
+Retrieves station data including date of most recent measurement.
+
+**URL:** https://smart-urban-heat-map.ch/api/1.0/stations
+**Response Formats:** `GeoJSON` (default), `CSV`
+
+## Codebook
+
+### latest <!-- omit in toc -->
+
 - **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Longitude, Latitude)
-- **stationId**: Unique identifier for the station (Example: "11099")
+- **stationId**: Unique identifier for the station (Example: "11004")
 - **name**: Name of the station (Example: "Sandrain-Bern")
 - **dateObserved**: Date and time of the last measurement (Example: "2023-08-01T12:00:00Z")
 - **temperature**: Last temperature measured at the station in °C (Example: 18.925001)
@@ -83,15 +90,22 @@ Retrieves time series based on stationId for:
 
 ### timeseries <!-- omit in toc -->
 
-- **stationId**: Unique identifier for the station (Example: "11099")
+- **stationId**: Unique identifier for the station (Example: "11004")
 - **dateObserved**: Date and time of the measurement (Example: "2023-08-01T12:00:00Z")
 - **temperature**: Temperature measured at the station in °C (Example: 18.925001)
 - **relativeHumidity**: Relative humidity measured at the station in % (Example: 60.971848)
 
+### stations <!-- omit in toc -->
+
+- **coordinates**: Array representing the geographical coordinates (in WGS84) of the station (Longitude, Latitude)
+- **stationId**: Unique identifier for the station (Example: "11099")
+- **name**: Name of the station (Example: "Sandrain-Bern")
+- **latestMeasurementDate**: Date and time of the last measurement (Example: "2023-08-01T12:00:00Z")
+
 ## Example Requests
 
 ### Request list of stations and most recent measurements  <!-- omit in toc -->
-`GET https://smart-urban-heat-map.ch/api/1.0/stations`
+`GET https://smart-urban-heat-map.ch/api/1.0/latest`
 
 ```json
 {
@@ -158,6 +172,49 @@ Retrieves time series based on stationId for:
       "dateObserved": "2023-10-01T00:25:45Z",
       "temperature": 14.03563,
       "relativeHumidity": 88.541084
+    },
+    ...
+  ]
+}
+```
+
+### Request list of stations and date of most recent measurement  <!-- omit in toc -->
+
+`GET https://smart-urban-heat-map.ch/api/1.0/stations`
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.43141,
+          46.94067
+        ]
+      },
+      "properties": {
+        "stationId": "11037",
+        "name": "Eigerplatz-Bern",
+        "latestMeasurementDate": "2023-10-05T11:36:29Z",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.439139,
+          46.96681
+        ]
+      },
+      "properties": {
+        "stationId": "11127",
+        "name": "Worblen-Ostermundigen",
+        "latestMeasurementDate": "2023-10-05T11:36:27Z",
+      }
     },
     ...
   ]
