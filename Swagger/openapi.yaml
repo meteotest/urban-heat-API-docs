@@ -35,9 +35,9 @@ info:
   license:
     name: "Creative Commons Attribution License (CC-BY)"
     url: "https://creativecommons.org/licenses/by/4.0/"
-  version: 1.0.0
+  version: "2"
 servers:
-  - url: "https://smart-urban-heat-map.ch/api/1.0"
+  - url: "https://smart-urban-heat-map.ch/api/v2"
     description: Production server
 
 paths:

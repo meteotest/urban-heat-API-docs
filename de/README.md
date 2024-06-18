@@ -33,9 +33,9 @@ Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:offic
 
 ## Changelog
 
-### API Version 1.0 <!-- omit in toc -->
+### API Version 2 <!-- omit in toc -->
 
-Dies ist die erste Version der Smart Urban Heat Map API, die am 09.10.2023 veröffentlicht wurde.
+Dies ist die zweite Version der Smart Urban Heat Map API, die am 18.06.2024 veröffentlicht wurde.
 
 **Hinweis**: In der initialen Version wurden die lat/lon-Koordinaten des GeoJSON-Endpoints `/stations` (heisst nun `/latest`) in der falschen Reihenfolge zurückgegeben (`[lat, lon]` statt `[lon, lat]`).
 
@@ -54,8 +54,8 @@ Ruft Stationsdaten ab, einschliesslich des letzten Messwerts für:
 * Die Temperatur in Grad Celsius (°C).
 * Die relative Luftfeuchtigkeit in Prozent (%).
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/latest
-**Rückgabeformate:** "GeoJSON" (Default), "CSV".
+**URL:** https://smart-urban-heat-map.ch/api/v2/latest  
+**Rückgabeformate:** `GeoJSON` (Default), `CSV`.  
 
 ### timeseries <!-- omit in toc -->
 
@@ -63,8 +63,8 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 * Die Temperatur in Grad Celsius (°C).
 * Die relative Luftfeuchtigkeit in Prozent (%).
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/timeseries
-**Rückgabeformate:** "JSON" (Default), "CSV".
+**URL:** https://smart-urban-heat-map.ch/api/v2/timeseries  
+**Rückgabeformate:** `JSON` (Default), `CSV`.  
 **URL-Parameter:**
    * **stationId** (erforderlich): Gibt an, von welcher Station die Zeitreihe zurückgegeben werden soll
    * **timeFrom** (optional, Default: "-24hours"): Gibt den Beginn der Zeitreihe an (Beispiele: "-3days", "-24hours", "-30minutes", "2023-10-01T00:00:00Z")
@@ -74,8 +74,8 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
 
 Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/stations
-**Rückgabeformate:** `GeoJSON` (Default), `CSV`.
+**URL:** https://smart-urban-heat-map.ch/api/v2/stations  
+**Rückgabeformate:** `GeoJSON` (Default), `CSV`.  
 
 ## Codebuch
 
@@ -106,7 +106,7 @@ Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
 
 ### Liste der Stationen einschliesslich der neuesten Messungen abfragen <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/latest`
+`GET https://smart-urban-heat-map.ch/api/v2/latest`
 
 ```json
 {
@@ -153,7 +153,7 @@ Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
 
 ### Zeitreihe für eine Station abfragen  <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
+`GET https://smart-urban-heat-map.ch/api/v2/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
 
 ```json
 {
@@ -181,7 +181,7 @@ Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
 
 ### Liste der Stationen inklusive der Zeitstempel der neusten Messung abfragen <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/stations`
+`GET https://smart-urban-heat-map.ch/api/v2/stations`
 
 ```json
 {

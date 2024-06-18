@@ -33,9 +33,9 @@ For technical questions regarding the API, please contact [Meteotest](mailto:off
 
 ## Changelog
 
-### API Version 1.0 <!-- omit in toc -->
+### API Version 2 <!-- omit in toc -->
 
-This is the first version of the Smart Urban Heat Map API published on 09.10.2023.
+This is the second version of the Smart Urban Heat Map API published on 18.06.2024.
 
 **Remark**: In the initial version, the GeoJSON end point `/stations` (now called `/latest`) returned the lat/lon coordinates in the wrong order (`[lat, lon]` rather than `[lon, lat]`).
 
@@ -55,16 +55,16 @@ Retrieves station data including most recent measured value for:
 * Temperature is in Celsius (°C).
 * Relative Humidity is in percentage (%).
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/latest
-**Response Formats:** `GeoJSON` (default), `CSV`
+**URL:** https://smart-urban-heat-map.ch/api/v2/latest  
+**Response Formats:** `GeoJSON` (default), `CSV`  
 
 ### timeseries <!-- omit in toc -->
 Retrieves time series based on stationId for:
 * Temperature is in Celsius (°C).
 * Relative Humidity is in percentage (%).
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/timeseries
-**Response Formats:** `JSON` (default), `CSV`
+**URL:** https://smart-urban-heat-map.ch/api/v2/timeseries  
+**Response Formats:** `JSON` (default), `CSV`  
 **URL Parameter:**
   * **stationId** (required): specifies from which station to return the time series
   * **timeFrom** (optional, default: "-24hours"): specifies start of time series (Examples: "-3days","-24hours","-30minutes", "2023-10-01T00:00:00Z")
@@ -74,8 +74,8 @@ Retrieves time series based on stationId for:
 
 Retrieves station data including date of most recent measurement.
 
-**URL:** https://smart-urban-heat-map.ch/api/1.0/stations
-**Response Formats:** `GeoJSON` (default), `CSV`
+**URL:** https://smart-urban-heat-map.ch/api/v2/stations  
+**Response Formats:** `GeoJSON` (default), `CSV`  
 
 ## Codebook
 
@@ -105,7 +105,7 @@ Retrieves station data including date of most recent measurement.
 ## Example Requests
 
 ### Request list of stations and most recent measurements  <!-- omit in toc -->
-`GET https://smart-urban-heat-map.ch/api/1.0/latest`
+`GET https://smart-urban-heat-map.ch/api/v2/latest`
 
 ```json
 {
@@ -152,7 +152,7 @@ Retrieves station data including date of most recent measurement.
 
 ### Request timeseries for a station  <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
+`GET https://smart-urban-heat-map.ch/api/v2/timeseries?stationId=11023&timeFrom=2023-10-01T00:00:00Z&timeTo=2023-10-31T23:00:00Z`
 
 ```json
 {
@@ -180,7 +180,7 @@ Retrieves station data including date of most recent measurement.
 
 ### Request list of stations and date of most recent measurement  <!-- omit in toc -->
 
-`GET https://smart-urban-heat-map.ch/api/1.0/stations`
+`GET https://smart-urban-heat-map.ch/api/v2/stations`
 
 ```json
 {
