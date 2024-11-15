@@ -136,50 +136,6 @@ paths:
                       schema:
                         $ref: "#/components/schemas/ErrorResponse"
 
-  /stations:
-    get:
-      summary: Retrieve station metadata
-      description: |
-        Retrieves station data including time of most recent measured value.
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/StationsResponse"
-              example:
-                type: "FeatureCollection"
-                features:
-                  - type: "Feature"
-                    geometry:
-                      type: "Point"
-                      coordinates: [8.927, 47.545]
-                    properties:
-                      stationId: "11042"
-                      name: "Bollwerk"
-                      latestMeasurementDate: "2023-08-01T12:00:00Z"
-                  - type: "Feature"
-                    geometry:
-                      type: "Point"
-                      coordinates: [8.674, 47.379]
-                    properties:
-                      stationId: "11902"
-                      name: "Neubrückstrasse"
-                      latestMeasurementDate: "2023-08-01T12:00:00Z"
-            text/csv:
-              schema:
-                type: string
-                example: "stationId;name;lat;lon;latestMeasurementDate\n
-                  11042;Bollwerk;47.545,8.927,2023-08-22T11:55Z\n
-                  11902;Neubrückstrasse;47.379,8.674,2023-08-01T12:00Z"
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-
 components:
   parameters:
 
@@ -275,24 +231,6 @@ components:
           items:
             $ref: "#/components/schemas/Value"
 
-    StationsResponse:
-      description: >
-        List all stations including metadata.
-      type: object
-      required:
-        - type
-        - features
-      properties:
-        type:
-          type: string
-          readOnly: true
-          description: "string 'FeatureCollection'"
-          example: "FeatureCollection"
-        features:
-          type: array
-          items:
-            $ref: "#/components/schemas/StationFeature"
-
     ErrorResponse:
       type: object
       required:
@@ -328,23 +266,6 @@ components:
           $ref: "#/components/schemas/Geometry"
         properties:
           $ref: "#/components/schemas/LatestProperties"
-
-    StationFeature:
-      type: object
-      required:
-        - type
-        - geometry
-        - properties
-      properties:
-        type:
-          type: string
-          readOnly: true
-          description: "string 'Feature'"
-          example: "Feature"
-        geometry:
-          $ref: "#/components/schemas/Geometry"
-        properties:
-          $ref: "#/components/schemas/StationProperties"
 
     Geometry:
       type: object
@@ -382,21 +303,6 @@ components:
           type: number
           readOnly: true
           description: "last measured relative humidity [%]"
-
-    StationProperties:
-      type: object
-      properties:
-        stationId:
-          type: string
-          readOnly: true
-          description: "unique ID"
-        name:
-          type: string
-          readOnly: true
-          description: "name of station"
-          example: "Bollwerk"
-        latestMeasurementDate:
-          $ref: "#/components/schemas/datetime"
 
     Coordinates:
       type: array

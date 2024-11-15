@@ -21,7 +21,6 @@ Bitte stellen Sie sicher, dass Sie bei der Verwendung oder Weitergabe dieser Dat
 
 **Kontaktinformationen**
 Bei Fragen zu den Daten wenden Sie sich bitte an die [BFH](mailto:jurek.mueller@bfh.ch).
-Bei Fragen zu Standorten und Daten des "Urban Climate Bern" Projektes wenden Sie sich bitte an [GIUB - Urban Climate Bern](mailto:urbanclimate.giub@unibe.ch).
 Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:office@meteotest.ch).
 
 **Inhaltsverzeichnis**
@@ -70,13 +69,6 @@ Ruft Zeitreihen basierend auf der Stations-ID ab für:
    * **timeFrom** (optional, Default: "-24hours"): Gibt den Beginn der Zeitreihe an (Beispiele: "-3days", "-24hours", "-30minutes", "2023-10-01T00:00:00Z")
    * **timeTo** (optional, Default: "now"): gibt das Ende der Zeitreihe an (Beispiele: "-3days", "-24hours", "-30minutes", "now", "2023-10-01T00:00:00Z")
 
-### stations <!-- omit in toc -->
-
-Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
-
-**URL:** https://smart-urban-heat-map.ch/api/v2/stations  
-**Rückgabeformate:** `GeoJSON` (Default), `CSV`.  
-
 ## Codebuch
 
 ### latest <!-- omit in toc -->
@@ -94,13 +86,6 @@ Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
 - **dateObserved**: Datum und Uhrzeit der Messung (Beispiel: "2023-08-01T12:00:00Z")
 - **temperature**: An der Station gemessene Temperatur in °C (Beispiel: 18.925001)
 - **relativeHumidity**: An der Station gemessene relative Luftfeuchtigkeit in % (Beispiel: 60,971848)
-
-### stations <!-- omit in toc -->
-
-- **coordinates**: Array, das die geografischen Koordinaten (in WGS84) der Station darstellt (Longitude, Latitude)
-- **stationId**: Eindeutige Kennung für die Station (Beispiel: "11099")
-- **name**: Name der Station (Beispiel: "Sandrain-Bern")
-- **latestMeasurementDate**: Datum und Uhrzeit der letzten Messung (Beispiel: "2023-08-01T12:00:00Z")
 
 ## Beispielabfragen
 
@@ -173,49 +158,6 @@ Ruft Stationsdaten ab, zusätzlich des Zeitstempels der letzten Messung.
       "dateObserved": "2023-10-01T00:25:45Z",
       "temperature": 14.03563,
       "relativeHumidity": 88.541084
-    },
-    ...
-  ]
-}
-```
-
-### Liste der Stationen inklusive der Zeitstempel der neusten Messung abfragen <!-- omit in toc -->
-
-`GET https://smart-urban-heat-map.ch/api/v2/stations`
-
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.43141,
-          46.94067
-        ]
-      },
-      "properties": {
-        "stationId": "11037",
-        "name": "Eigerplatz-Bern",
-        "latestMeasurementDate": "2023-10-05T11:36:29Z",
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.439139,
-          46.96681
-        ]
-      },
-      "properties": {
-        "stationId": "11127",
-        "name": "Worblen-Ostermundigen",
-        "latestMeasurementDate": "2023-10-05T11:36:27Z",
-      }
     },
     ...
   ]
