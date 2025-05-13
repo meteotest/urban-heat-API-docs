@@ -20,7 +20,6 @@ Please ensure that you provide proper attribution when using or redistributing t
 *Attribution Example:* Data provided by the Smart Urban Heat Map Project for Bern, Switzerland.
 
 **Contact Information**
-For questions regarding the data, please contact the [BFH](mailto:jurek.mueller@bfh.ch).
 For technical questions regarding the API, please contact [Meteotest](mailto:office@meteotest.ch).
 
 **Table of Contents**

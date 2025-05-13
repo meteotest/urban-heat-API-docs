@@ -20,7 +20,6 @@ Bitte stellen Sie sicher, dass Sie bei der Verwendung oder Weitergabe dieser Dat
 *Attributionsbeispiel:* Daten bereitgestellt vom Smart Urban Heat Map Projekt für Bern, Schweiz.
 
 **Kontaktinformationen**
-Bei Fragen zu den Daten wenden Sie sich bitte an die [BFH](mailto:jurek.mueller@bfh.ch).
 Bei technischen Fragen zur API wenden Sie sich bitte an [Meteotest](mailto:office@meteotest.ch).
 
 **Inhaltsverzeichnis**
